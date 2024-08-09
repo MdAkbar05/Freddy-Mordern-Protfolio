@@ -1,5 +1,13 @@
 "use client";
-import { Avatar } from "@material-tailwind/react";
+import {
+  Avatar,
+  Textarea,
+  Tooltip,
+  Typography,
+} from "@material-tailwind/react";
+
+import { MdOutlineKeyboardArrowDown, MdOutlineDone } from "react-icons/md";
+
 import avatar from "./components/navbar/img/avatar.png";
 import edit from "./assets/img/editIcon.png";
 import open from "./assets/img/openIcon.png";
@@ -14,8 +22,18 @@ import Certified3 from "./assets/img/Certified3.png";
 
 import Services from "./components/services-card";
 import Skill from "./components/skill";
+import { useState } from "react";
 
 export default function Home() {
+  const [editProfile, setEditProfile] = useState(false);
+  const [title, setTitle] = useState("Engineering Seamless Software Solutions");
+  const [career, setCareer] = useState(
+    "Erin Deluca is currently a Maths teacher and is also providing private tutoring. She is pursuing a Master's degree in Actuarial Science after completing her Bachelor's degree in Mathematics."
+  );
+
+  const handleEdit = () => {
+    setEditProfile(!editProfile);
+  };
   return (
     <main className="main fontMontreal">
       {/* Hero section  */}
@@ -26,30 +44,65 @@ export default function Home() {
             Freddy Chebli
           </div>
           <div className="cursor-pointer">
-            <img src={open.src} alt="edit" />
+            <Tooltip
+              content="Share Profile"
+              animate={{
+                mount: { scale: 1, y: 0 },
+                unmount: { scale: 0, y: 25 },
+              }}
+            >
+              <img src={open.src} alt="edit" />
+            </Tooltip>
           </div>
         </div>
         <div className="flexCenter gap-2">
-          <div className="roundPadding bg-white text-gray-700 cursor-pointer">
-            Fullstack
+          <div className="roundPadding bg-white text-gray-700 cursor-pointer flexCenter gap-2">
+            <span>Fullstack</span>
+            <MdOutlineKeyboardArrowDown />
           </div>
           <div>•</div>
-          <div className="roundPadding bg-white text-gray-700 cursor-pointer">
-            Open to Work
+          <div className="roundPadding bg-white text-gray-700 cursor-pointer flexCenter gap-2">
+            <span>Open to work</span>
+            <MdOutlineKeyboardArrowDown />
           </div>
         </div>
         <div className="flex justify-center gap-2 relative">
-          <div className="absolute left-[-40px] pt-1 cursor-pointer">
-            <img
-              src={edit.src}
-              alt="edit"
-              className="h-10 w-10 rounded-lg  cursor-pointer"
+          <div
+            onClick={() => handleEdit()}
+            className="absolute left-[-40px] pt-1 cursor-pointer"
+          >
+            <Tooltip
+              content={editProfile ? "Save Profile" : "Edit Profile"}
+              animate={{
+                mount: { scale: 1, y: 0 },
+                unmount: { scale: 0, y: 25 },
+              }}
+            >
+              {editProfile ? (
+                <MdOutlineDone className="border w-10 h-10 bg-white rounded-full cursor-pointer" />
+              ) : (
+                <img
+                  src={edit.src}
+                  alt="edit"
+                  className="h-10 w-10 rounded-lg  cursor-pointer"
+                />
+              )}
+            </Tooltip>
+          </div>
+          {editProfile ? (
+            <Textarea
+              onChange={(e) => setTitle(e.target.value)}
+              size="lg"
+              variant="static"
+              placeholder="Engineering Seamless
+              Software Solutions"
+              className="fontMontreal largeText font-bold text-center border-none  "
             />
-          </div>
-          <div className="largeText font-bold text-center ml-6 text-[#02164F]">
-            <span>Engineering Seamless</span> <br />
-            <span>Software Solutions</span>
-          </div>
+          ) : (
+            <Typography className="fontMontreal largeText font-bold text-center ml-6 w-[600px] text-[#02164F]">
+              {title}
+            </Typography>
+          )}
         </div>
       </div>
 
@@ -82,17 +135,40 @@ export default function Home() {
             <div className="text-xl font-bold text-[#02164F]">
               Career Profile
             </div>
-            <img
-              src={edit.src}
-              alt="edit"
-              className="h-10 w-10 rounded-lg  cursor-pointer"
+            <div onClick={() => handleEdit()}>
+              <Tooltip
+                content={editProfile ? "Save Profile" : "Edit Profile"}
+                animate={{
+                  mount: { scale: 1, y: 0 },
+                  unmount: { scale: 0, y: 25 },
+                }}
+              >
+                {editProfile ? (
+                  <MdOutlineDone className="border w-10 h-10 bg-white rounded-full cursor-pointer" />
+                ) : (
+                  <img
+                    src={edit.src}
+                    alt="edit"
+                    className="h-10 w-10 rounded-lg  cursor-pointer"
+                  />
+                )}
+              </Tooltip>
+            </div>
+          </div>
+          {editProfile ? (
+            <Textarea
+              onChange={(e) => setCareer(e.target.value)}
+              size="lg"
+              variant="static"
+              placeholder="Engineering Seamless
+            Software Solutions"
+              className="fontMontreal text-2xl rounded-3xl font-normal py-4 px-6 bg-[#F5F9FE]r border-none  "
             />
-          </div>
-          <div className="text-lg rounded-3xl font-normal py-4 px-6 bg-[#F5F9FE]">
-            Erin Deluca is currently a Maths teacher and is also providing
-            private tutoring. She is pursuing a Master's degree in Actuarial
-            Science after completing her Bachelor's degree in Mathematics.
-          </div>
+          ) : (
+            <div className="text-lg rounded-3xl font-normal py-4 px-6 bg-[#F5F9FE]">
+              {career}
+            </div>
+          )}
         </div>
         {/* Earned badges  */}
         <div className="flex flex-col gap-y-2">

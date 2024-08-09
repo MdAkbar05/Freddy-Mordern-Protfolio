@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .navbar {
-  @apply flex justify-start h-24 w-full sticky top-0 z-50;
-  background: hsla(0, 0%, 100%, 1);
-  background: linear-gradient(
+  @apply flex justify-start h-24 w-full sticky top-0 z-50 backdrop-blur-lg;
+  /* background: rgba(255, 255, 255, 0.421); */
+  /* background: linear-gradient(
     90deg,
     hsla(0, 0%, 100%, 1) 0%,
     rgb(245, 255, 254) 100%
-  );
+  ); */
 }
 
 .flexCenter {
@@ -17,7 +17,7 @@
 }
 
 .main {
-  @apply flex flex-col justify-center items-center px-8;
+  @apply flex flex-col justify-center items-center px-8 ml-12;
   background: hsla(0, 0%, 100%, 1);
   background: linear-gradient(
     90deg,

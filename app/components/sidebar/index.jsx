@@ -10,8 +10,8 @@ import Link from "next/link";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col justify-between  py-4 w-16 h-96 float-left border overflow-hidden rounded-br-3xl sticky left-0 ">
-      <ul className="flexCenter flex-col  gap-y-8">
+    <div className="flex justify-between flex-col  py-4 w-16 h-full float-left border bg-[#ffffffd0] overflow-hidden  z-50 fixed  top-24 ">
+      <ul className="flexCenter flex-col  gap-y-8  ">
         <li>
           <Link
             href="#about"
@@ -44,10 +44,10 @@ const Sidebar = () => {
             <LuClipboardList className="w-6 h-6" />{" "}
           </Link>
         </li>
+        <span className="flexCenter cursor-pointer text-center text-gray-600 hover:text-gray-800 mt-12">
+          <MdOutlineSettings className="w-6 h-6" />
+        </span>
       </ul>
-      <div className="flexCenter cursor-pointer text-center text-gray-600 hover:text-gray-800">
-        <MdOutlineSettings className="w-6 h-6" />
-      </div>
     </div>
   );
 };

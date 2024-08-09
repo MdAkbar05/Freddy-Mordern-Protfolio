@@ -34,7 +34,7 @@ const Navigations = () => {
           </div>
         </div>
         <div className="flexCenter gap-4">
-          <div className="roundPadding bg-white flexCenter gap-x-2 sm:hidden md:flex">
+          <div className="roundPadding border bg-white flexCenter gap-x-2 sm:hidden md:flex">
             <span>20 Credits</span> <ImCoinEuro className="text-orange-600" />
           </div>
           <div className="text-gray-400 font-thin">|</div>
