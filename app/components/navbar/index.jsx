@@ -11,6 +11,7 @@ import React from "react";
 import logo from "./img/logo.png";
 import icon from "./img/icons.png";
 import avatar from "./img/avatar.png";
+import MobileMenu from "../mobile-menu";
 const Navigations = () => {
   return (
     <nav className="navbar">
@@ -33,7 +34,11 @@ const Navigations = () => {
             </div>
           </div>
         </div>
-        <div className="flexCenter gap-4">
+        {/* if Size change to mobile screen then Mobile nav load here  */}
+        <div className=" gap-4 sm:flexCenter sm:my-auto md:hidden">
+          <MobileMenu />
+        </div>
+        <div className=" gap-4 sm:hidden md:flex md:justify-center md:items-center">
           <div className="roundPadding border bg-white flexCenter gap-x-2 sm:hidden md:flex">
             <span>20 Credits</span> <ImCoinEuro className="text-orange-600" />
           </div>

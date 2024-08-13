@@ -17,7 +17,7 @@
 }
 
 .main {
-  @apply flex flex-col justify-center items-center px-8 ml-12;
+  @apply flex flex-col justify-center items-center md:px-8 sm:px-6 ml-12;
   background: hsla(0, 0%, 100%, 1);
   background: linear-gradient(
     90deg,
@@ -43,10 +43,10 @@
 }
 
 .active {
-  @apply text-[#F5F9FE] bg-[#02164F] hover:bg-[#01103a] transition-colors;
+  @apply text-[#F5F9FE] bg-[#02164F] hover:bg-[#01103a] transition-colors font-semibold;
 }
 .inactive {
-  @apply bg-[#F5F9FE] text-[#02164F] hover:bg-[#deeaf9] transition-colors;
+  @apply bg-[#F5F9FE] text-[#02164F] hover:bg-[#deeaf9] transition-colors font-semibold;
 }
 
 .skillCard {
@@ -57,8 +57,8 @@
 }
 
 .footerStyle {
-  @apply rounded-[32px] flex py-24 flex-wrap gap-y-4;
-  justify-content: space-around;
+  @apply rounded-[32px] flex sm:flex-col md:flex-row sm:justify-center md:justify-around sm:items-center md:items-start sm:gap-y-8 md:py-24 sm:px-16 md:px-0 sm:py-16 flex-wrap md:gap-y-4;
+
   background: hsla(0, 0%, 100%, 1);
   background: linear-gradient(
     90deg,

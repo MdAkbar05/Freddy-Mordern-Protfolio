@@ -30,7 +30,7 @@ const Footer = () => {
         {/* Right Column  */}
         <div className="flex gap-x-16">
           <div className="flex flex-col gap-y-4">
-            <Typography className="text-xl font-bold text-[#02164F]">
+            <Typography className="md:text-xl sm:text-lg font-bold text-[#02164F]">
               For Candidates
             </Typography>
             <div className="flex flex-col gap-y-2">
@@ -46,7 +46,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col gap-y-4">
-            <Typography className="text-xl font-bold text-[#02164F]">
+            <Typography className="md:text-xl sm:text-lg font-bold text-[#02164F]">
               Company
             </Typography>
             <div className="flex flex-col gap-y-2">
